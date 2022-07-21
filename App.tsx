@@ -1,21 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import  { NativeBaseProvider } from 'native-base';
+import SignIn from './src/pages/SignIn';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello React Native!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <SignIn />
+    </NativeBaseProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
+};
