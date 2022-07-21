@@ -20,6 +20,7 @@ function SignIn() {
       <Input
         placeholder="Senha"
         InputLeftElement={ <Icon as={ <Key color={ colors.gray[300] } /> } ml={4} /> }
+        secureTextEntry
       />
     </VStack>
   );
