@@ -1,6 +1,7 @@
 import React from 'react';
 import { VStack, Heading } from 'native-base';
 import Logo from '../assets/logo_primary.svg';
+import { Input } from '../components/Input';
 
 function SignIn() {
   return (
@@ -9,6 +10,8 @@ function SignIn() {
       <Heading color="gray.100" fontSize="xl" mt={20} mb={6}>
         Acesse sua conta
       </Heading>
+      <Input placeholder="E-mail"/>
+      <Input placeholder="Senha"/>
     </VStack>
   );
 }
