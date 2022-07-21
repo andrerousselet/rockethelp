@@ -10,7 +10,7 @@ function SignIn() {
       <Heading color="gray.100" fontSize="xl" mt={20} mb={6}>
         Acesse sua conta
       </Heading>
-      <Input placeholder="E-mail"/>
+      <Input placeholder="E-mail" mb={4}/>
       <Input placeholder="Senha"/>
     </VStack>
   );
