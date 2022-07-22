@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { HStack, IconButton, VStack, useTheme, Text, Heading } from 'native-base';
 import Logo from '../assets/logo_secondary.svg';
 import { SignOut } from 'phosphor-react-native';
 import { Filter } from '../components/Filter';
 
 export default function Home() {
-const { colors } = useTheme();
+  // setting specific type to state variable ⟶⟶⟶⟶⟶ ↘︎ ↘︎
+  const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open');
+
+  const { colors } = useTheme();
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
@@ -29,10 +33,20 @@ const { colors } = useTheme();
             akjrvfdkajfbv
           </Text>
         </HStack>
-      <HStack>
-        <Filter title="em andamento" type="open"/>
-        <Filter title="finalizados" type="closed"/>
-      </HStack>
+        <HStack space={3} mb={8}>
+          <Filter
+            title="em andamento"
+            type="open"
+            onPress={() => setStatusSelected('open')}
+            isActive={statusSelected === 'open'}
+          />
+          <Filter
+            title="finalizados"
+            type="closed"
+            onPress={() => setStatusSelected('closed')}
+            isActive={statusSelected === 'closed'}
+          />
+        </HStack>
       </VStack>
     </VStack>
   );
