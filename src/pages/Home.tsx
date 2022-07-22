@@ -1,19 +1,22 @@
 import { useState } from 'react'
-import { HStack, IconButton, VStack, useTheme, Text, Heading, FlatList } from 'native-base';
-import { SignOut } from 'phosphor-react-native';
+import { HStack, IconButton, VStack, useTheme, Text, Heading, FlatList, Center } from 'native-base';
+import { SignOut, ChatTeardropText } from 'phosphor-react-native';
 import Logo from '../assets/logo_secondary.svg';
 import Filter from '../components/Filter';
 import Order, { OrderProps } from '../components/Order';
+import { Button } from '../components/Button';
 
 export default function Home() {
   // setting specific type to state variable ⟶⟶⟶⟶⟶ ↘︎ ↘︎
   const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open');
-  const [orders, setOrders] = useState<OrderProps[]>([{
-    id: '123',
-    patrimony: '654654',
-    when: '18/07/2022 às 10:00',
-    status: 'open',
-  }]);
+  const [orders, setOrders] = useState<OrderProps[]>([
+    {
+      id: '123',
+      patrimony: '654654',
+      when: '18/07/2022 às 10:00',
+      status: 'open',
+    }
+  ]);
 
 
   const { colors } = useTheme();
@@ -59,7 +62,18 @@ export default function Home() {
           data={orders}
           keyExtractor={(order) => order.id}
           renderItem={({item}) => <Order data={item} />}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <Center>
+              <ChatTeardropText color={colors.gray[300]} size={40} />
+              <Text color="gray.300" fontSize="xl" mt={6} textAlign="center">
+                Você não possui {'\n'}
+                solicitações {statusSelected === 'open' ? 'em andamento' : 'finalizadas'}
+              </Text>
+            </Center>
+          )}
         />
+        <Button title="Nova solicitação"/>
       </VStack>
     </VStack>
   );
