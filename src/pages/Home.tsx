@@ -1,6 +1,7 @@
 import { HStack, IconButton, VStack, useTheme, Text, Heading } from 'native-base';
 import Logo from '../assets/logo_secondary.svg';
 import { SignOut } from 'phosphor-react-native';
+import { Filter } from '../components/Filter';
 
 export default function Home() {
 const { colors } = useTheme();
@@ -28,6 +29,10 @@ const { colors } = useTheme();
             akjrvfdkajfbv
           </Text>
         </HStack>
+      <HStack>
+        <Filter title="em andamento" type="open"/>
+        <Filter title="finalizados" type="closed"/>
+      </HStack>
       </VStack>
     </VStack>
   );
