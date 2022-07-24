@@ -47,9 +47,9 @@ export default function Home() {
       </HStack>
       <VStack flex={1} px={6}>
         <HStack w="full" mt={8} mb={4} justifyContent="space-between" alignItems="center">
-          <Heading color="gray.100">Meus Chamados</Heading>
+          <Heading color="gray.100">Solicitações</Heading>
           <Text color="gray.200">
-            akjrvfdkajfbv
+            {orders.length}
           </Text>
         </HStack>
         <HStack space={3} mb={8}>
