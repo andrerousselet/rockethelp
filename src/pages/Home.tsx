@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 import { HStack, IconButton, VStack, useTheme, Text, Heading, FlatList, Center } from 'native-base';
 import { SignOut, ChatTeardropText } from 'phosphor-react-native';
 import Logo from '../assets/logo_secondary.svg';
@@ -17,11 +18,11 @@ export default function Home() {
       status: 'open',
     }
   ]);
-
   const { colors } = useTheme();
+  const navigation = useNavigation();
 
   function handleNewOrder() {
-
+    navigation.navigate('new')
   }
 
   return (
