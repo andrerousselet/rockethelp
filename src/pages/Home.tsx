@@ -25,6 +25,10 @@ export default function Home() {
     navigation.navigate('new')
   }
 
+  function handleOpenDetails(orderId: string) {
+    navigation.navigate('details', { orderId })
+  }
+
   return (
     <VStack flex={1} pb={6} bg="gray.700">
       <HStack
@@ -65,7 +69,7 @@ export default function Home() {
         <FlatList
           data={orders}
           keyExtractor={(order) => order.id}
-          renderItem={({item}) => <Order data={item} />}
+          renderItem={({item}) => <Order data={item} onPress={() => handleOpenDetails(item.id)}/>}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
             <Center>
